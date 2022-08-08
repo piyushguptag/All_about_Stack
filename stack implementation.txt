@@ -1,0 +1,76 @@
+public class Main
+{
+  private listNode top;
+  private int length;
+
+  private class listNode
+  {
+    private int data;
+    private listNode next;
+
+    public listNode (int data)
+    {
+      this.data = data;
+    }
+  }
+  public Main ()
+  {
+    top = null;
+    length = 0;
+  }
+  public int length ()
+  {
+    return length;
+  }
+  public boolean isEmpty ()
+  {
+    return length == 0;
+  }
+  public void print ()
+  {
+    listNode cur = top;
+    while (cur != null)
+      {
+	System.out.println (cur.data);
+	cur = cur.next;
+      }
+  }
+  public void push (int n)
+  {
+    listNode temp = new listNode (n);
+    temp.next = top;
+    top = temp;
+    length++;
+  }
+  public int pop ()
+  {
+    if (isEmpty ()){
+        System.out.println("No element found");
+        return 0;
+    }
+    int result = top.data;
+    top = top.next;
+    length--;
+
+    return result;
+  }
+  public int peek ()
+  {
+    if (isEmpty ()){
+	   System.out.println ("No element found");
+	   return 0;
+    }
+
+    return top.data;
+  }
+  public static void main (String[]args)
+  {
+    Main stack = new Main ();
+    stack.push (1);
+    stack.push (2);
+    stack.print ();
+    System.out.println (stack.pop () + " is pop");
+    System.out.println (stack.pop () + " is pop");
+    System.out.println (stack.pop () + " is pop");
+  }
+}
